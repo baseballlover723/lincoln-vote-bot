@@ -1,0 +1,22 @@
+<p>Its minimalism,
+  <span style="font-size: 18pt">not</span>
+  <span style="font-size: 12pt">because</span>
+  <span style="font-size: 8pt">I'm</span>
+  <span style="font-size: 6pt">lazy</span>
+  <br/>
+  I've voted for Lincoln <%= @total_votes %> times
+  <br/>
+  I'm going to vote for Lincoln <%= @votes_left %> more times
+</p>
+<%= form_tag do %>
+    <p>
+      <%= label_tag(:number, "How many times do I want to vote for Lincoln? (Max: #{@max_votes})") %>
+      <br/>
+      <%= number_field(:vote, :number, in: 1..@max_votes, step: 1) %>
+    </p>
+    <p>
+    <%= label_tag(:randomize, "Should I put a random delay in between votes?") %>
+    <%= check_box_tag(:randomize) %>
+    </p>
+    <%= submit_tag("Vote!") %>
+<% end %>
